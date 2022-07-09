@@ -1,0 +1,20 @@
+ ##Remove Duplicates Recursively
+
+#include<string.h>
+void removeConsecutiveDuplicates(char *input) {
+	 
+   int n= strlen(input);
+if(n==0){
+    return ;
+}
+    if(input[0]==input[1]){
+        int i=0;
+        for(;i<n;i++){
+            input[i]=input[i+1];
+        }
+        removeConsecutiveDuplicates(input);
+    }
+    else
+    removeConsecutiveDuplicates(input+1);
+
+}
