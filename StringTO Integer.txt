@@ -1,0 +1,13 @@
+ ##String to Integer
+
+
+#include<string.h>
+int stringToNumber(char input[]) {
+int n=strlen(input);
+    int k=0;
+    for(int i=0 ;i<n;i++){
+        k=k*10+int(input[i])-'0';
+    }
+return k;
+}
+
