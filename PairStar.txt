@@ -1,0 +1,20 @@
+ ##PairStar 
+
+
+void pairStar(char input[]) {
+ 
+    int n = strlen(input);
+    if( n == 0 || n == 1 ){
+        return ;
+    }
+    
+     if( input[0] == input[1] ){
+         for( int i = strlen(input) ; i >= 1; --i ){
+             input[i+1] = input[i];
+         }
+         input[1]  = '*';
+     }    
+ 
+    pairStar(input+1);
+
+}
