@@ -1,0 +1,23 @@
+ #Pair sum in array
+
+#include<bits/stdc++.h>
+#include<cmath>
+int pairSum(int *arr, int n, int num)
+  {
+   
+
+    sort(arr,arr+n);
+    float y=num/2;
+    int count=0;
+    for(int i=n-1; arr[i]>=ceil(y);i--)
+    {
+        for(int j=i-1;j>=0;j--)
+        {
+            if(arr[i]+arr[j]==num)
+            {
+                count++;
+            }     
+        }
+    }
+    return count;
+}
