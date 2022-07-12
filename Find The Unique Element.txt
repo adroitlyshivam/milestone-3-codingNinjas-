@@ -1,0 +1,12 @@
+ #Find the Unique Element
+
+int findUnique(int arr[], int size){
+   
+    int unique=0,i;
+    for(i=0;i<size;i++)
+    {
+        unique ^= arr[i];
+        
+    }
+    return unique;
+}
