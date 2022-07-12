@@ -1,0 +1,12 @@
+ ##Check Array Rotation
+
+int arrayRotateCheck(int *input, int size)
+{
+    
+//int FindSortedArrayRotation(int arr[], int n) {
+    
+    int i=0;
+    for(;input[i]<=input[i+1];i++)
+    {continue;}
+      
+    return i+1;
