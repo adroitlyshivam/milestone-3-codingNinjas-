@@ -1,0 +1,122 @@
+ ##Polynomial Class
+
+class Polynomial {
+    public:
+    int *degCoeff;   // Name of your array (Don't change this)
+    int capacity;
+    
+    Polynomial(){
+        degCoeff=new int[5];
+        capacity=5;
+          for(int i=0;i<(capacity);i++){
+                degCoeff[i]=0;
+            }
+        
+    }
+    void setCoefficient(int degree,int coeff){
+        if (degree>=capacity){
+            int newcap=capacity;
+            while (degree>=newcap){
+                newcap*=2;
+            }
+            int *newdata=new int[newcap];
+            for(int i=0;i<(newcap);i++){
+                newdata[i]=0;
+            }
+            for(int i=0;i<capacity;i++){
+                newdata[i]=degCoeff[i];
+            }
+            delete[] degCoeff;
+            degCoeff=newdata;
+            capacity=newcap;
+            
+        }
+        degCoeff[degree]+=coeff;
+    }
+    Polynomial (Polynomial const &p){
+        this->degCoeff=new int[p.capacity];
+        for(int i=0;i<p.capacity;i++){
+            this->degCoeff[i]=p.degCoeff[i];
+        }
+        
+    }
+    Polynomial operator+(Polynomial const &p){
+        Polynomial ans;
+        int a=0;
+        while(a<capacity && a<p.capacity){
+            int c=degCoeff[a]+p.degCoeff[a];
+            ans.setCoefficient(a,c);
+            a++;
+        }
+        while(a<capacity){
+            int c=degCoeff[a];
+            ans.setCoefficient(a,c);
+            a++;
+        }
+        while(a<p.capacity){
+            int c=p.degCoeff[a];
+            ans.setCoefficient(a,c);
+            a++;
+        }
+        ans.capacity = max(p.capacity, capacity);
+        return ans;
+        
+    }
+   Polynomial operator-(Polynomial const &p){
+        Polynomial ans;
+        int a=0;
+        while(a<capacity && a<p.capacity){
+            int c=degCoeff[a]-p.degCoeff[a];
+            ans.setCoefficient(a,c);
+            a++;
+        }
+        while(a<capacity){
+            int c=degCoeff[a];
+            ans.setCoefficient(a,c);
+            a++;
+        }
+        while(a<p.capacity){
+            int c=p.degCoeff[a];
+            ans.setCoefficient(a, (-1) * c);
+            a++;
+        }
+        ans.capacity = max(p.capacity, capacity);
+        return ans;
+        
+    }
+    Polynomial operator*(Polynomial const &p){
+        Polynomial ans;
+        for(int i=0;i<capacity;i++){
+            if (degCoeff[i]==0){
+                continue;
+            }
+            for(int j=0;j<p.capacity;j++){
+                 if (p.degCoeff[j]==0){
+                continue;
+                 }
+                int c=(degCoeff[i]*p.degCoeff[j]);
+                int d=(i+j);
+                ans.setCoefficient(d,c);
+                
+            }
+        }
+        return ans;
+    }
+    void print(){
+        for(int i=0;i<capacity;i++){
+            if (degCoeff[i]!=0){
+                cout<<degCoeff[i]<<"x"<<i<<" ";
+            }
+        }
+    }
+        void operator=(Polynomial const &p){
+        this->degCoeff=new int[p.capacity];
+        for(int i=0;i<p.capacity;i++){
+            this->degCoeff[i]=p.degCoeff[i];
+        }
+        
+    }
+    
+    // Complete the class
+    
+};
