@@ -1,0 +1,40 @@
+ ##Complex Number Class 
+
+class ComplexNumbers {
+    // Complete this class
+ int real;
+    int img;
+    public:
+    ComplexNumbers(int a, int b){
+        real=a;
+        img=b;
+    }
+    void print(){
+        cout<<real<<" + i"<<img;
+    }
+    void plus(ComplexNumbers c2){
+        real+=c2.real;
+    img+=c2.img;
+    }
+   void multiply(ComplexNumbers c2){
+       int r=real;
+       real=real*c2.real-img*c2.img;
+       img=r*c2.img+img*c2.real;
+   } 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
