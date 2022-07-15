@@ -1,0 +1,20 @@
+  ##Print ith node
+
+ void printIthNode(Node *head, int i)
+{
+     Node* temp=head;
+       int l =0;
+    while(temp!= NULL){
+        temp =temp->next;
+        l++;
+    }
+    temp=head;
+     for(int j=0;j<l;j++){
+         if(j==i){
+         cout<<temp->data;
+         }
+         temp=temp->next;
+     }
+    
+}
+ 
