@@ -1,0 +1,11 @@
+ ##Length of LinkedList 
+
+int length(Node *head)
+{
+     int l =0;
+    while(head !=  NULL){
+        head = head->next;
+        l++;
+    }
+    return l;
+}
