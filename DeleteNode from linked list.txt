@@ -1,0 +1,20 @@
+ ## DeleteNode from linked list 
+
+Node *deleteNode(Node *head, int pos)
+{
+    // Write your code here.
+    
+    
+    if(head==NULL)
+        return NULL;
+    
+    if(pos==0)
+    {
+        return head->next;
+    }
+    
+    head->next = deleteNode(head->next , pos-1);
+    
+    return head;
+    
+}
