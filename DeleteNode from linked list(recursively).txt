@@ -1,0 +1,19 @@
+ ##Delete node (recursive)
+
+Node *deleteNodeRec(Node *head, int pos) {
+    if (pos < 0)
+       return head;
+  
+    if (head== NULL)
+       return NULL;
+   
+    if (pos == 0)
+    {
+        Node *res = head->next;
+        delete(head);
+        return res; 
+    }
+     
+    head->next = deleteNodeRec(head->next, pos-1);
+    return head;
+}
