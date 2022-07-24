@@ -1,0 +1,16 @@
+ 
+Node *midPoint(Node *head)
+{
+    if(head == NULL){
+        return NULL;
+    }
+    Node *slow_ptr = head;
+    Node *fast_ptr = head->next;
+ 
+	while (fast_ptr != NULL && fast_ptr->next != NULL){
+         slow_ptr = slow_ptr->next;
+         fast_ptr = fast_ptr->next->next;
+    }
+    
+    return slow_ptr ;
+}
