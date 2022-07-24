@@ -1,0 +1,25 @@
+/* Pair Wise given Sum in unsorted array */  
+
+ import java.util.*;
+public class MyClass {
+    static boolean pairWiseGivenSum(int [] a,int x){
+        HashSet<Integer>set=new HashSet<>();
+        for(int i:a){
+            int comp=x-i;
+           if( set.contains(comp)){
+               return true;
+           }
+           else
+           set.add(i);
+        }
+             
+             return false;
+    }
+      
+    public static void main(String args[]) {
+   int arr[]={1,2,3,1,2,3,5};
+  // Countinteger(arr,8);
+
+    System .out.println( pairWiseGivenSum(arr,8));
+    }
+}
