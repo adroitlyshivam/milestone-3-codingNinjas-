@@ -1,0 +1,31 @@
+#Balanced Parenthesis
+
+ #include<stack>
+using namespace std;
+bool isBalanced(string expression) 
+{
+    stack<char> s;
+      
+       char ch;
+   for (int i=0; i<expression.length(); i++) {    
+      if (expression[i]=='(') {       
+         s.push(expression[i]);
+         continue;
+      }
+       else{
+           if(s.size()==0){
+               return false;
+           }
+           if(s.top()=='('){
+               s.pop();
+               continue;
+           }
+           else{
+               return false;
+           }
+       }
+      
+      }
+      return (s.empty());  
+}
+ 
