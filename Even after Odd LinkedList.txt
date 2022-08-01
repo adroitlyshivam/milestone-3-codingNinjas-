@@ -1,0 +1,52 @@
+ ##Even after Odd LinkedList
+
+Node *evenAfterOdd(Node *head)
+{
+    if(head==NULL){
+        return head;
+}
+	Node *EH=NULL;
+    Node *ET=NULL;
+    Node *OH=NULL;
+    Node *OT=NULL;
+    while(head!=NULL){
+        if(head->data%2!=0){
+            if(OH==NULL){
+                OH=head;
+                OT=head;
+                head=head->next;
+}
+            else{
+                OT->next=head;
+                OT=head;
+                head=head->next;
+            }
+        }
+        else{
+            if(EH==NULL){
+                EH=head;
+                ET=head;
+                head=head->next;
+            }
+            else{
+                ET->next=head;
+                ET=head;
+                head=head->next;
+            }
+        }
+    }
+    if(OH==NULL){
+        ET->next=NULL;
+        return EH;
+}
+    if(EH==NULL){
+        OT->next=NULL;
+        return OH;
+}
+    else{
+        OT->next=NULL;
+        ET->next=NULL;
+        OT->next=EH;
+        return OH;
+    }
+}
