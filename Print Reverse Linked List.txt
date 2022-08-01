@@ -1,0 +1,14 @@
+##Print Reverse Linked list     
+
+ void printReverse(Node* head)
+{
+    // Base case
+    if (head == NULL)
+    return;
+ 
+    // print the list after head node
+    printReverse(head->next);
+ 
+    // After everything else is printed, print head
+    cout << head->data << " ";
+}
