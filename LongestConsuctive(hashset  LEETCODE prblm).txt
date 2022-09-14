@@ -1,0 +1,39 @@
+ import java.util.*;
+public class MyClass {
+   
+    static int longestConsecutive(int[] nums) {
+        int ans=1 ;
+     int len;
+        HashSet<Integer>set=new HashSet<>();
+        for(int i:nums) set.add(i);
+           if(set.size()==0){
+            return 0;
+        }
+       
+        
+        for(int i=0;i<nums.length;++i){
+             len=0;
+          
+            if(!set.contains(nums[i]-1))
+            {
+                int j=nums[i];
+                 
+                while(set.contains(j)){
+                    
+                    //System.out.print((j));
+                    ++j;
+                    len++;
+                }
+                
+            }
+         ans=Math.max(ans,len);
+        }
+        return ans;
+    }
+
+    public static void main(String args[]) {
+   int arr[]={0,0,-1};
+  int n=3;
+ System.out.println(longestConsecutive(arr));
+    }
+}
