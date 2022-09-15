@@ -1,0 +1,21 @@
+ 
+void mirrorBinaryTree(BinaryTreeNode<int>* root) {
+    
+    // Write your code here
+
+ if (root == NULL) 
+        return; 
+    else
+    {
+          BinaryTreeNode<int>* temp;
+        
+        /* do the subtrees */
+       mirrorBinaryTree(root->left);
+        mirrorBinaryTree(root->right);
+    
+        /* swap the pointers in this node */
+        temp     = root->left;
+        root->left = root->right;
+        root->right = temp;
+    }
+}
