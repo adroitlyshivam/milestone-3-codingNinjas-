@@ -1,0 +1,16 @@
+ 
+void postOrder(BinaryTreeNode<int> *root) 
+	// Write your code here
+{
+    if (root == NULL)
+        return;
+ 
+    // first recur on left subtree
+     postOrder(root->left);
+ 
+    // then recur on right subtree
+     postOrder(root->right);
+ 
+    // now deal with the node
+   cout << root->data << " ";
+}
